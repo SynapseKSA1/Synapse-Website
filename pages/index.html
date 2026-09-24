@@ -33,8 +33,8 @@ faq:
       على الصفحة الرئيسية.
   - q: هل تقدّم سِنابس ورش عمل؟
     a: >-
-      نعم، تنظّم سِنابس ورش عمل دورية في مجالات الذكاء الاصطناعي المختلفة، ويمكن الاطلاع على الورشة
-      الحالية في قسم "ورش العمل"، وعلى أرشيف الورش السابقة في صفحة اللقاءات السابقة.
+      نعم، تنظّم سِنابس ورش عمل دورية في مجالات الذكاء الاصطناعي المختلفة، وستُعلن الورش الجديدة في قسم
+      "ورش العمل"، ويمكن الاطلاع على أرشيف الورش السابقة في صفحة اللقاءات السابقة.
   - q: هل لدى سِنابس معسكر للأطفال؟
     a: >-
       نعم، تقدّم سِنابس معسكر الذكاء الاصطناعي للأطفال، وهو برنامج تدريبي للفئة العمرية من 7 إلى 12 سنة
@@ -215,138 +215,14 @@ faq:
   </div>
 </section>
 
-<div class="title-container">
-  <h2 class="section-title"><span class="title-pill">ورش العمل</span></h2>
-</div>
-
-<div class="background-effect"></div>
-
-<div class="page-container">
-  <div class="slider-wrapper" id="workshops">
-    <div class="container">
-      <div class="slider-track">
-        <div class="card">
-          <span class="tag">عن بعد</span>
-          <h2 class="title-ar">Agentic AI</h2>
-          <h3 class="title-en">الذكاء الاصطناعي التوكلي</h3>
-          <p class="description">
-            تهدف الورشة إلى استكشاف مفهوم "Agentic AI" وكيف تتحول أدوات الذكاء
-            الاصطناعي من مجرد أدوات مساعدة في الواجهة الأمامية إلى أنظمة مستقلة
-            تعمل في الخلفية وتنجز المهام ذاتياً. تقدم الورشة أمثلة واقعية على
-            التطبيقات وتناقش التحديات المتعلقة بالتحكم والأمان، وهي موجهة
-            للمطورين والمهتمين بالأتمتة والابتكار.
-          </p>
-          <button class="register-btn"><span>التسجيل الآن</span></button>
-        </div>
-      </div>
-    </div>
+<section class="workshops-soon" id="workshops">
+  <div class="title-container">
+    <h2 class="section-title"><span class="title-pill">ورش العمل</span></h2>
   </div>
-
-  <div class="modal">
-    <div class="modal-content">
-      <button class="modal-close">×</button>
-      <div class="modal-body"></div>
-    </div>
+  <div class="workshops-soon-box">
+    <h3>انتظرونا قريباً</h3>
+    <p>لمزيد من ورش العمل المميزة في مجال الذكاء الاصطناعي والتقنية</p>
   </div>
-
-  <script>
-    const workshopData = {
-      "Agentic AI": {
-        duration: "ساعة",
-        fees: "لا يوجد",
-        seats: "200-150",
-        attendance: "عن بعد",
-        link: "https://forms.cloud.microsoft/r/cCxRDT3m9b",
-        schedule: [{ day: "01/29/2026 - الخميس", time: "8:00 - 9:00 مساءً" }],
-        instructor: {
-          name: "م. عبدالله الشريف",
-          image: "https://media.licdn.com/dms/image/v2/D4D03AQH_hxIFREFUCQ/profile-displayphoto-scale_400_400/B4DZsTuYuuJYAg-/0/1765562486472?e=1770854400&v=beta&t=2P4biOjOAGtRdPjW2tavgZjPX_XPZEhsVteW1QD__xA",
-          bio: "مهندس ذكاء اصطناعي خبرة سنتين متخصص بإنشاء حلول مبنية على وكلاء الذكاء الاصطناعي, أصنع حلول تحل مشاكل مؤسسية"
-        }
-      }
-    };
-
-    document.querySelectorAll(".register-btn").forEach((btn) => {
-      btn.addEventListener("click", function () {
-        const modal = document.querySelector(".modal");
-        const modalBody = modal.querySelector(".modal-body");
-        const card = this.closest(".card");
-
-        const title = card.querySelector(".title-ar").textContent.trim();
-        const type = card.querySelector(".tag").textContent;
-        const data = workshopData[title];
-
-        const scheduleHTML = data.schedule.map(item => `
-          <li class="schedule-item">
-            <span>${item.day}</span>
-            <span>${item.time}</span>
-          </li>
-        `).join("");
-
-        const instructorHTML = data.instructors
-          ? data.instructors.map(instructor => `
-              <div class="instructor-info">
-                <img src="${instructor.image}" alt="${instructor.name}" class="instructor-image">
-                <div class="instructor-details">
-                  <h4>${instructor.name}</h4>
-                  <p>${instructor.bio}</p>
-                </div>
-              </div>
-            `).join("")
-          : `<div class="instructor-info">
-              <img src="${data.instructor.image}" alt="${data.instructor.name}" class="instructor-image">
-              <div class="instructor-details">
-                <h4>${data.instructor.name}</h4>
-                <p>${data.instructor.bio}</p>
-              </div>
-            </div>`;
-
-        modalBody.innerHTML = `
-          <h3 style="color: var(--color-primary); margin-bottom: 1rem;">${type}</h3>
-          <h2 style="margin-bottom: 1.5rem; color: var(--text-primary);">${title}</h2>
-          <div class="modal-details">
-            <div class="detail-item">
-              <div class="detail-label">مدة الدورة</div>
-              <div class="detail-value">${data.duration}</div>
-            </div>
-            <div class="detail-item">
-              <div class="detail-label">الرسوم</div>
-              <div class="detail-value">${data.fees}</div>
-            </div>
-            <div class="detail-item">
-              <div class="detail-label">المقاعد المتاحة</div>
-              <div class="detail-value">${data.seats}</div>
-            </div>
-            <div class="detail-item">
-              <div class="detail-label">نوع الحضور</div>
-              <div class="detail-value">${data.attendance}</div>
-            </div>
-          </div>
-          <div class="course-schedule">
-            <h4 class="schedule-title">مواعيد الدورة</h4>
-            <ul class="schedule-list">${scheduleHTML}</ul>
-          </div>
-          <div class="instructors-section">
-            <h4 class="instructors-title" style="margin-bottom: 1rem;">المدربون</h4>
-            ${instructorHTML}
-          </div>
-          <a href="${data.link}" target="_blank" class="register-btn" style="margin-top: 2rem; display: inline-block; text-align: center;">التسجيل</a>
-        `;
-
-        modal.classList.add("show");
-      });
-    });
-
-    document.querySelector(".modal-close").addEventListener("click", () => {
-      document.querySelector(".modal").classList.remove("show");
-    });
-
-    document.querySelector(".modal").addEventListener("click", (e) => {
-      if (e.target === document.querySelector(".modal")) {
-        document.querySelector(".modal").classList.remove("show");
-      }
-    });
-  </script>
-</div>
+</section>
 
 {% include faq-section.html %}

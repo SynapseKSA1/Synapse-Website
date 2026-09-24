@@ -115,7 +115,7 @@
           name: "حسن برمندة",
           title: "نائب مدير التطوير و الابتكار   ",
           departments: [ "لجنة التطوير و الابتكار"],
-          linkedin: "https://scholar.google.com/citations?user=2VzOr0kAAAAJ&hl=en",
+          linkedin: "https://www.linkedin.com/in/hsnhb/",
         },
         {
           name: "ريناد عبدالله الغامدي",

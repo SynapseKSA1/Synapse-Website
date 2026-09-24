@@ -2618,3 +2618,41 @@ nav {
 #services .service-description {
   color: #c9c9c9;
 }
+
+
+/* Workshops: "coming soon" placeholder, as on the live site. */
+.workshops-soon {
+  padding: 4rem 1.5rem 5rem;
+  text-align: center;
+}
+
+.workshops-soon-box {
+  position: relative;
+  max-width: 850px;
+  margin: 4.5rem auto 0;
+  padding: 1.5rem 2rem 2rem;
+  border: 3px solid var(--color-cta-orange);
+  border-radius: 48px;
+}
+
+.workshops-soon-box::before {
+  content: "";
+  position: absolute;
+  top: -3.5rem;
+  left: 50%;
+  width: 2px;
+  height: 3.5rem;
+  background: var(--color-text-muted);
+}
+
+.workshops-soon-box h3 {
+  margin: 0 0 0.4rem;
+  font-size: 2rem;
+  color: var(--color-accent-tan);
+}
+
+.workshops-soon-box p {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 1.1rem;
+}
