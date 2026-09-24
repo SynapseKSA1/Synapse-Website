@@ -1,0 +1,147 @@
+.blog-grid {
+  max-width: 1200px;
+  margin: var(--spacing-xl) auto;
+  padding: 0 var(--spacing-md);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.blog-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition-normal);
+}
+
+.blog-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+.blog-card-image-wrap {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.blog-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.blog-card-body {
+  padding: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.blog-card-category {
+  color: var(--color-primary);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.blog-card-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.blog-card-description {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.blog-card-date {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin-top: var(--spacing-xs);
+}
+
+.blog-post {
+  max-width: 780px;
+  margin: var(--spacing-xl) auto;
+  padding: 0 var(--spacing-md);
+}
+
+.blog-post-header {
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.blog-post-category {
+  color: var(--color-primary);
+  font-weight: 600;
+  margin-bottom: var(--spacing-xs);
+}
+
+.blog-post-title {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  color: var(--text-primary);
+  margin: 0 0 var(--spacing-sm);
+  line-height: 1.4;
+}
+
+.blog-post-meta {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.blog-post-image {
+  width: 100%;
+  border-radius: var(--radius-xl);
+  margin-bottom: var(--spacing-lg);
+}
+
+.blog-post-body {
+  font-size: 1.1rem;
+  line-height: 2;
+  color: var(--text-secondary);
+}
+
+.blog-post-body h2 {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin-top: var(--spacing-xl);
+  margin-bottom: var(--spacing-sm);
+}
+
+.blog-post-body p {
+  margin-bottom: var(--spacing-md);
+}
+
+.blog-post-body ul,
+.blog-post-body ol {
+  margin: 0 0 var(--spacing-md);
+  padding-inline-start: 1.5rem;
+}
+
+.blog-post-body li {
+  margin-bottom: var(--spacing-xs);
+}
+
+.blog-post-footer {
+  margin-top: var(--spacing-xl);
+  text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .blog-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* The header is fixed, so clear it on blog pages (breadcrumbs is the first element). */
+.breadcrumbs {
+  margin-top: 6.5rem;
+}

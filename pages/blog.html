@@ -1,0 +1,34 @@
+---
+layout: default
+permalink: /blog/
+title: مدونة سِنابس | مقالات في الذكاء الاصطناعي والبيانات
+breadcrumb: المدونة
+description: مقالات سِنابس في الذكاء الاصطناعي وعلوم البيانات، موجهة للطلاب والمهنيين والمهتمين في المملكة العربية السعودية.
+page_css:
+  - /CSS/style.css
+  - /CSS/blog.css
+---
+<div class="title-container">
+  <h1 class="workshop-title">مدونة سِنابس</h1>
+  <p class="section-subtitle">
+    مقالات في الذكاء الاصطناعي وعلوم البيانات، مبنية على تجربة سِنابس في التدريب والاستشارات وبناء المجتمع التقني.
+  </p>
+</div>
+
+<div class="blog-grid">
+  {% for post in site.posts %}
+  <a class="blog-card" href="{{ post.url | relative_url }}">
+    {% if post.image %}
+    <div class="blog-card-image-wrap">
+      <img src="{{ post.image.path | relative_url }}" alt="{{ post.title }}" class="blog-card-image" loading="lazy" />
+    </div>
+    {% endif %}
+    <div class="blog-card-body">
+      <p class="blog-card-category">{{ post.category }}</p>
+      <h2 class="blog-card-title">{{ post.title }}</h2>
+      <p class="blog-card-description">{{ post.description }}</p>
+      <time class="blog-card-date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%-d %B %Y" }}</time>
+    </div>
+  </a>
+  {% endfor %}
+</div>

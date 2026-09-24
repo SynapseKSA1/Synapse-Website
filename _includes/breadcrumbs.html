@@ -1,0 +1,51 @@
+{% comment %}
+  Renders a visible breadcrumb trail plus matching BreadcrumbList JSON-LD.
+  Skipped entirely on the homepage (page.url == '/'), since a single root
+  page has nothing to show a trail against.
+{% endcomment %}
+{% unless page.url == '/' %}
+{% assign trail = "" | split: "," %}
+{% assign home_item = "الرئيسية|" | append: "/" %}
+{% assign trail = trail | push: home_item %}
+
+{% if page.layout == 'post' %}
+  {% assign blog_item = "المدونة|/blog/" %}
+  {% assign trail = trail | push: blog_item %}
+{% endif %}
+
+{% assign current_item = page.breadcrumb | default: page.title | append: "|" | append: page.url %}
+{% assign trail = trail | push: current_item %}
+
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <ol>
+    {% for item in trail %}
+      {% assign parts = item | split: "|" %}
+      <li>
+        {% if forloop.last %}
+        <span aria-current="page">{{ parts[0] }}</span>
+        {% else %}
+        <a href="{{ parts[1] | relative_url }}">{{ parts[0] }}</a>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ol>
+</nav>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {% for item in trail %}
+    {% assign parts = item | split: "|" %}
+    {
+      "@type": "ListItem",
+      "position": {{ forloop.index }},
+      "name": {{ parts[0] | jsonify }},
+      "item": "{{ parts[1] | absolute_url }}"
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ]
+}
+</script>
+{% endunless %}

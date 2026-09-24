@@ -1,0 +1,27 @@
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="site-footer-contact">
+      <h2>تواصل معنا</h2>
+      <a class="site-footer-email" href="mailto:SynapseAdmin@synapseksa.com">SynapseAdmin@synapseksa.com</a>
+      <p>جدة، المملكة العربية السعودية</p>
+      <div class="site-footer-social">
+        <a href="https://x.com/synapseksa" aria-label="X (تويتر)"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+        <a href="https://www.linkedin.com/company/synapseksa/" aria-label="لينكدإن"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+      </div>
+    </div>
+    <div class="site-footer-links" role="navigation" aria-label="روابط سريعة">
+      <h2>روابط سريعة</h2>
+      <ul>
+        <li><a href="{{ '/' | relative_url }}">الرئيسية</a></li>
+        <li><a href="{{ '/' | relative_url }}#about">من نحن</a></li>
+        <li><a href="{{ '/' | relative_url }}#services">خدماتنا</a></li>
+        <li><a href="{{ '/blog/' | relative_url }}">المدونة</a></li>
+        <li><a href="{{ '/Previous_meetings.html' | relative_url }}">اللقاءات السابقة</a></li>
+        <li><a href="{{ '/Newsletter.html' | relative_url }}">النشرة الاخبارية</a></li>
+        <li><a href="mailto:SynapseAdmin@synapseksa.com">تطوع معنا</a></li>
+      </ul>
+    </div>
+    <img class="site-footer-mark" src="{{ '/Assets/logos/synapse-mark-live.webp' | relative_url }}" alt="شعار سِنابس" width="150" height="150" loading="lazy" />
+  </div>
+  <p class="site-footer-legal">جميع الحقوق محفوظة &copy; {{ 'now' | date: "%Y" }} Synapse - المملكة العربية السعودية</p>
+</footer>

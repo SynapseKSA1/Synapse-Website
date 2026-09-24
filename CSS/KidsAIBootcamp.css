@@ -1,28 +1,28 @@
 :root {
-  --primary-color: #01acd3;
-  --secondary-color: #7a8f78;
-  --accent-color: #3b9b9f;
+  --primary-color: var(--color-primary);
+  --secondary-color: var(--color-accent-green);
+  --accent-color: var(--color-primary-dark);
   --text-primary: #2c3e50;
   --text-secondary: #34495e;
-  --gradient-start: linear-gradient(135deg, #01acd3, #3b9b9f, #7a8f78, #b17f5c);
-  --gradient-end: linear-gradient(135deg, #b17f5c, #7a8f78, #3b9b9f, #01acd3);
+  --gradient-start: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark), var(--color-accent-green), var(--color-accent-tan));
+  --gradient-end: linear-gradient(135deg, var(--color-accent-tan), var(--color-accent-green), var(--color-primary-dark), var(--color-primary));
   --bg-color: #f8fafc;
-  --card-bg: #ffffff;
+  --card-bg: var(--color-white);
   --border-radius: 16px;
-  --shadow-sm: 0 2px 4px rgba(1, 172, 211, 0.1);
-  --shadow-md: 0 4px 6px rgba(1, 172, 211, 0.1);
-  --shadow-lg: 0 10px 20px rgba(1, 172, 211, 0.15);
+  --shadow-sm: 0 2px 4px rgba(var(--color-primary-rgb), 0.1);
+  --shadow-md: 0 4px 6px rgba(var(--color-primary-rgb), 0.1);
+  --shadow-lg: 0 10px 20px rgba(var(--color-primary-rgb), 0.15);
   --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   --glass-bg: rgba(255, 255, 255, 0.95);
   --glass-border: rgba(255, 255, 255, 0.18);
-  --glass-shadow: 0 8px 32px 0 rgba(1, 172, 211, 0.1);
+  --glass-shadow: 0 8px 32px 0 rgba(var(--color-primary-rgb), 0.1);
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Cairo", sans-serif;
+  font-family: var(--font-primary);
 }
 
 @keyframes gradientBG {
@@ -63,8 +63,6 @@
 
 body {
   background: linear-gradient(-45deg, #f8fafc, #e6f7fa, #f0f9f6, #ffffff);
-  background-size: 400% 400%;
-  animation: gradientBG 15s ease infinite;
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -74,38 +72,14 @@ body {
   overflow-x: hidden;
 }
 
-body::before,
-body::after {
-  content: "";
-  position: fixed;
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  background: var(--gradient-start);
-  opacity: 0.1;
-  filter: blur(100px);
-  z-index: -1;
-}
-
-body::before {
-  top: -150px;
-  right: -150px;
-  animation: float 6s ease-in-out infinite;
-}
-
-body::after {
-  bottom: -150px;
-  left: -150px;
-  animation: float 8s ease-in-out infinite reverse;
-}
 ::selection {
   color: inherit;
-  background: rgba(1, 172, 211, 0.2);
+  background: rgba(var(--color-primary-rgb), 0.2);
 }
 
 ::-moz-selection {
   color: inherit;
-  background: rgba(1, 172, 211, 0.2);
+  background: rgba(var(--color-primary-rgb), 0.2);
 }
 
 *::before,
@@ -178,11 +152,9 @@ body::after {
 
 .workshop-title {
   font-size: 2.5rem;
-  color: var(--text-primary);
+  font-weight: 700;
+  color: var(--color-primary-dark);
   margin-bottom: 1rem;
-  background: var(--gradient-start);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 .workshop-subtitle {
@@ -613,7 +585,7 @@ body::after {
   cursor: pointer;
   background: linear-gradient(
     to right,
-    rgba(1, 172, 211, 0.05),
+    rgba(var(--color-primary-rgb), 0.05),
     rgba(122, 143, 120, 0.05)
   );
   transition: all 0.3s ease;
@@ -622,7 +594,7 @@ body::after {
 .faq-question:hover {
   background: linear-gradient(
     to right,
-    rgba(1, 172, 211, 0.1),
+    rgba(var(--color-primary-rgb), 0.1),
     rgba(122, 143, 120, 0.1)
   );
 }
@@ -670,7 +642,7 @@ body::after {
   margin-top: 1rem;
   padding-right: 1rem;
   border-right: 3px solid var(--primary-color);
-  background: rgba(1, 172, 211, 0.05);
+  background: rgba(var(--color-primary-rgb), 0.05);
   padding: 0.8rem 1rem;
   border-radius: 8px;
 }
@@ -763,3 +735,29 @@ body::after {
 }
 
 
+
+.landing-back-home {
+  position: fixed;
+  top: var(--spacing-md);
+  inset-inline-start: var(--spacing-md);
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  padding: 0.5rem 1rem;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition-normal);
+}
+
+.landing-back-home:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+.landing-back-home img {
+  height: 45px;
+  width: auto;
+  display: block;
+}

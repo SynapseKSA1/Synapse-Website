@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+  {% include head.html %}
+  {% if page.page_extra_head %}
+  {% include {{ page.page_extra_head }} %}
+  {% endif %}
+  {% for css in page.page_css %}
+  <link href="{{ css | relative_url }}" rel="stylesheet" />
+  {% endfor %}
+  {% if page.faq %}{% include faq-jsonld.html %}{% endif %}
+</head>
+<body>
+  <a class="landing-back-home" href="{{ '/' | relative_url }}">
+    <img alt="سِنابس" src="{{ '/Assets/logos/synapse-logo-live.png' | relative_url }}" />
+  </a>
+
+  {{ content }}
+
+  {% for js in page.page_js %}
+  <script src="{{ js | relative_url }}"></script>
+  {% endfor %}
+</body>
+</html>

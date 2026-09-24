@@ -1,0 +1,21 @@
+{% comment %}
+  Visible FAQ accordion, driven by page.faq (a list of {q, a} pairs).
+  Pair with _includes/faq-jsonld.html for the matching FAQPage schema,
+  and load js/faq-toggle.js on any page that uses this.
+{% endcomment %}
+<div class="faq-section" id="faq">
+  <h2 class="section-title">{{ include.title | default: "الأسئلة الشائعة" }}</h2>
+  <div class="faq-container">
+    {% for item in page.faq %}
+    <div class="faq-item">
+      <div class="faq-question">
+        <span class="question-text">{{ item.q }}</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>{{ item.a }}</p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>

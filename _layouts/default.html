@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+  {% include head.html %}
+  {% if page.page_extra_head %}
+  {% include {{ page.page_extra_head }} %}
+  {% endif %}
+  {% for css in page.page_css %}
+  <link href="{{ css | relative_url }}" rel="stylesheet" />
+  {% endfor %}
+  <link href="{{ '/CSS/footer.css' | relative_url }}" rel="stylesheet" />
+  {% if page.faq %}{% include faq-jsonld.html %}{% endif %}
+</head>
+<body>
+  <a class="skip-link" href="#main">تخطَّ إلى المحتوى</a>
+  {% include header.html %}
+  {% include breadcrumbs.html %}
+
+  <main id="main">
+  {{ content }}
+  </main>
+
+  {% include footer.html %}
+
+  <script src="{{ '/js/header.js' | relative_url }}" defer></script>
+  {% for js in page.page_js %}
+  <script src="{{ js | relative_url }}"></script>
+  {% endfor %}
+</body>
+</html>

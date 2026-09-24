@@ -1,37 +1,3 @@
-// ================== الهيدر والقائمة ==================
-const header = document.querySelector("header");
-const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
-const nav = document.querySelector("nav");
-
-window.addEventListener("scroll", () => {
-  header.classList.toggle("scrolled", window.scrollY > 30);
-});
-
-mobileMenuBtn.addEventListener("click", () => {
-  nav.classList.toggle("show");
-  const icon = mobileMenuBtn.querySelector("i");
-  icon.classList.toggle("fa-bars");
-  icon.classList.toggle("fa-times");
-});
-
-document.addEventListener("click", (e) => {
-  if (!nav.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-    nav.classList.remove("show");
-    const icon = mobileMenuBtn.querySelector("i");
-    icon.classList.remove("fa-times");
-    icon.classList.add("fa-bars");
-  }
-});
-
-document.querySelectorAll(".nav-links a").forEach((link) => {
-  link.addEventListener("click", () => {
-    nav.classList.remove("show");
-    const icon = mobileMenuBtn.querySelector("i");
-    icon.classList.remove("fa-times");
-    icon.classList.add("fa-bars");
-  });
-});
-
 // ================== عناصر تطفو ==================
 const floatItems = document.querySelectorAll('.float-item');
 floatItems.forEach((item, index) => {

@@ -1,9 +1,14 @@
 # macOS
 .DS_Store
+.DS_Store?
 .AppleDouble
 .LSOverride
+.Spotlight-V100
+.Trashes
+Icon?
 Thumbs.db
 ehthumbs.db
+desktop.ini
 
 # Editor / IDE
 .vscode/*
@@ -11,20 +16,46 @@ ehthumbs.db
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+.cursor/
+.idea/
 *.sublime-project
 *.sublime-workspace
-.idea/
 *.swp
 *.swo
 *~
+*.bak
+*.orig
+
+# Office lock files
+~$*
 
 # Logs and temp
 *.log
 *.tmp
+*.temp
 .cache/
+
+# Jekyll / Ruby
+_site/
+.jekyll-cache/
+.jekyll-metadata
+.bundle/
+vendor/
+.sass-cache/
+*.gem
+
+# Archives / downloads that don't belong in the repo
+*.zip
+*.dmg
+
+# Secrets, never commit these
+.env
+.env.local
+.env.*.local
 
 # Optional: uncomment if you add build tools later
 # node_modules/
 # dist/
-# .env
-# .env.local
+
+# Thmanyah font files: license forbids redistributing the raw files (public repo)
+Assets/fonts/thmanyah/

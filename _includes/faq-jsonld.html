@@ -1,0 +1,24 @@
+{% comment %}
+  Renders FAQPage JSON-LD from page.faq (a list of {q, a} pairs).
+  Only include this on a page that also renders the matching visible
+  FAQ section (see _includes/faq-section.html), structured data must
+  match what's actually on the page.
+{% endcomment %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {% for item in page.faq %}
+    {
+      "@type": "Question",
+      "name": {{ item.q | jsonify }},
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": {{ item.a | jsonify }}
+      }
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ]
+}
+</script>

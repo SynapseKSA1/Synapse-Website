@@ -1,0 +1,20 @@
+---
+---
+# AI answer-engine crawlers, explicitly allowed so citation eligibility
+# is never lost to an accidental block (see README, SEO & AEO section).
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: *
+Allow: /
+
+Sitemap: {{ "/sitemap.xml" | absolute_url }}

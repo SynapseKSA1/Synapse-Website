@@ -57,45 +57,6 @@
         
 
 
-      const header = document.querySelector("header");
-      const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
-      const nav = document.querySelector("nav");
-
-      window.addEventListener("scroll", () => {
-        if (window.scrollY > 30) {
-          header.classList.add("scrolled");
-        } else {
-          header.classList.remove("scrolled");
-        }
-      });
-
-      mobileMenuBtn.addEventListener("click", () => {
-        nav.classList.toggle("show");
-        const icon = mobileMenuBtn.querySelector("i");
-        icon.classList.toggle("fa-bars");
-        icon.classList.toggle("fa-times");
-      });
-
-      document.addEventListener("click", (e) => {
-        if (!nav.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-          nav.classList.remove("show");
-          const icon = mobileMenuBtn.querySelector("i");
-          icon.classList.remove("fa-times");
-          icon.classList.add("fa-bars");
-        }
-      });
-
-      document.querySelectorAll(".nav-links a").forEach((link) => {
-        link.addEventListener("click", () => {
-          nav.classList.remove("show");
-          const icon = mobileMenuBtn.querySelector("i");
-          icon.classList.remove("fa-times");
-          icon.classList.add("fa-bars");
-        });
-      });
-    
-
-
       const teamMembers = [
         // مجلس الإدارة
         {
@@ -151,11 +112,10 @@
           linkedin: "https://www.linkedin.com/in/khadijah-baothman/",
         },
         {
-          name: "محمد سامي اليماني",
+          name: "حسن برمندة",
           title: "نائب مدير التطوير و الابتكار   ",
-          isFounder: true,  // أضف هذا السطر للمؤسسين
           departments: [ "لجنة التطوير و الابتكار"],
-          linkedin: "https://www.linkedin.com/in/mohammed-alyamani-17562b294/?",
+          linkedin: "https://scholar.google.com/citations?user=2VzOr0kAAAAJ&hl=en",
         },
         {
           name: "ريناد عبدالله الغامدي",
@@ -456,7 +416,7 @@
       ].map((member) => ({
         ...member,
         image:
-        "Assets/Synapse_G-0٦-removebg-preview.png",
+        "Assets/logos/Synapse_G-0٦-removebg-preview.png",
       }));
       const createMemberCard = (member) => {
     const departments = member.departments || [member.department];

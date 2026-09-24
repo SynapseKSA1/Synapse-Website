@@ -1,0 +1,117 @@
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+<link rel="preload" href="{{ '/Assets/fonts/synapse-brand.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin />
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'"
+  integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
+<noscript>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</noscript>
+<link href="{{ '/Assets/logos/synapse-mark-live.webp' | relative_url }}" rel="icon" type="image/webp" />
+
+{% if page.preload_image %}<link rel="preload" href="{{ page.preload_image | relative_url }}" as="image" fetchpriority="high" />{% endif %}
+<link href="{{ '/CSS/variables.css' | relative_url }}" rel="stylesheet" />
+
+{% seo %}
+<link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NGO",
+  "@id": "{{ site.url }}/#organization",
+  "name": "Synapse",
+  "alternateName": "سِنابس",
+  "slogan": "نلتقي.. فنبني.. لنتصل",
+  "url": "{{ site.url }}/",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "{{ site.url }}{{ site.logo }}",
+    "width": 298,
+    "height": 115
+  },
+  "foundingDate": "2024-07-29",
+  "identifier": "1000623900",
+  "email": "SynapseAdmin@synapseksa.com",
+  "foundingLocation": {
+    "@type": "Place",
+    "name": "جدة، المملكة العربية السعودية"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "جدة",
+    "addressCountry": "SA"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Saudi Arabia"
+  },
+  "knowsAbout": [
+    "الذكاء الاصطناعي",
+    "علوم البيانات",
+    "تعلم الآلة",
+    "Artificial Intelligence",
+    "Data Science"
+  ],
+  "memberOf": {
+    "@type": "GovernmentOrganization",
+    "name": "الهيئة السعودية للبيانات والذكاء الاصطناعي (سدايا)",
+    "alternateName": "SDAIA"
+  },
+  "sameAs": [
+    "https://x.com/synapseksa",
+    "https://www.linkedin.com/company/synapseksa/"
+  ],
+  "member": [
+    {
+      "@type": "Person",
+      "name": "ريان نزار بشاوري",
+      "jobTitle": "شريك مؤسس و نائب رئيس مجلس الإدارة",
+      "sameAs": ["https://www.linkedin.com/in/rayan-beshawri/"]
+    },
+    {
+      "@type": "Person",
+      "name": "شوق يحيى اهيف",
+      "jobTitle": "شريك مؤسس ومديرة الموارد البشرية",
+      "sameAs": ["https://www.linkedin.com/in/shouq-ahyaf-4256b41b1/"]
+    },
+    {
+      "@type": "Person",
+      "name": "أسيل أحمد المحمادي",
+      "jobTitle": "شريك مؤسس ومديرة قسم التسويق",
+      "sameAs": ["https://www.linkedin.com/in/aseel-almehmadi-302770209"]
+    },
+    {
+      "@type": "Person",
+      "name": "حسن برمندة",
+      "alternateName": "Hassan Barmandah",
+      "jobTitle": "نائب مدير قسم التكنولوجيا والتطوير",
+      "sameAs": [
+        "https://scholar.google.com/citations?user=2VzOr0kAAAAJ&hl=en",
+        "https://arxiv.org/search/cs?searchtype=author&query=Barmandah,+H",
+        "https://aclanthology.org/people/hassan-barmandah/unverified/",
+        "https://huggingface.co/Haakkim",
+        "https://www.researchgate.net/profile/Hassan-Barmandah",
+        "https://orcid.org/0009-0000-3518-3693"
+      ]
+    },
+    {
+      "@type": "Person",
+      "name": "اريج شويل",
+      "jobTitle": "الرئيس التنفيذي",
+      "sameAs": ["https://www.linkedin.com/in/areej-showail"]
+    },
+    {
+      "@type": "Person",
+      "name": "سعود بن عبدالعزيز",
+      "jobTitle": "شريك مؤسس و عضو مجلس الإدارة",
+      "sameAs": ["https://www.linkedin.com/in/saud-bin-abdulaziz-25b2b7278"]
+    }
+  ],
+  "description": {{ site.description | strip_newlines | jsonify }}
+}
+</script>

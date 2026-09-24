@@ -1,0 +1,48 @@
+title: "سِنابس Synapse"
+description: >-
+  منظمة سِنابس غير الربحية، المتخصصة في مجال البيانات والذكاء الاصطناعي في المملكة العربية السعودية.
+  نؤمن بأن الابتكار هو المحرك الأساسي نحو مستقبل مشرق.
+url: "https://synapseksa.tech"
+lang: ar
+logo: /Assets/logos/synapse-logo-live.png
+twitter:
+  username: synapseksa
+  card: summary_large_image
+social:
+  name: Synapse
+  links:
+    - https://x.com/synapseksa
+    - https://www.linkedin.com/company/synapseksa/
+
+permalink: /blog/:title/
+
+collections:
+  posts:
+    output: true
+
+markdown: kramdown
+kramdown:
+  input: GFM
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      page_css:
+        - /CSS/style.css
+        - /CSS/blog.css
+
+exclude:
+  - README.md
+  - note/
+  - Gemfile
+  - Gemfile.lock
+  - vendor/
+  - _archive/
+  - .bundle/

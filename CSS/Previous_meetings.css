@@ -1,118 +1,28 @@
-@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap");
-
 :root {
-  /* Main Brand Colors */
-  --primary-blue: #01acd3;
-  /* اللون الأزرق من اللوقو */
-  --secondary-sage: #7a8f78;
-  /* اللون الأخضر المائل للرمادي من اللوقو */
-  --accent-teal: #3b9b9f;
-  /* اللون المتوسط من اللوقو */
-  --accent-brown: #b17f5c;
-  /* اللون البني من اللوقو */
+  /* Main Brand Colors (aliased to the shared tokens in CSS/variables.css;
+     Cairo itself is already loaded once, sitewide, via _includes/head.html) */
+  --primary-blue: var(--color-primary);
+  --secondary-sage: var(--color-accent-green);
+  --accent-teal: var(--color-primary-dark);
+  --accent-brown: var(--color-accent-tan);
+  --color-accent: var(--color-primary-dark);
+  --color-gradient: linear-gradient(135deg, var(--color-accent-tan), var(--color-primary));
 
   /* Text Colors */
   --text-primary: #303030;
   --text-secondary: #4a5568;
-  --text-light: #f8fafc;
-  --text-muted: #64748b;
 
-  /* Background Colors */
-  --bg-primary: #f8fafc;
-  --bg-secondary: #ffffff;
-  --bg-tertiary: #f1f5f9;
-  --bg-card: rgba(255, 255, 255, 0.9);
-
-  /* Gradient Combinations */
-  --gradient-primary: linear-gradient(
-    135deg,
-    #01acd3,
-    #3b9b9f,
-    #7a8f78,
-    #b17f5c
-  );
-  --gradient-secondary: linear-gradient(
-    135deg,
-    #b17f5c,
-    #7a8f78,
-    #3b9b9f,
-    #01acd3
-  );
-  --gradient-hover: linear-gradient(135deg, #3b9b9f, #01acd3, #7a8f78);
-  --gradient-card: linear-gradient(
-    120deg,
-    rgba(255, 255, 255, 0.8),
-    rgba(255, 255, 255, 0.4)
-  );
-
-  /* Dark Mode Colors */
-  --dark-bg-primary: #1a1a1a;
-  --dark-bg-secondary: #2d2d2d;
-  --dark-bg-tertiary: #333333;
-  --dark-card: rgba(255, 255, 255, 0.1);
-
-  /* Border Colors */
-  --border-light: rgba(255, 255, 255, 0.8);
-  --border-medium: rgba(1, 172, 211, 0.2);
-  --border-dark: rgba(0, 0, 0, 0.1);
-
-  /* Shadow Effects */
-  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
-  --shadow-lg: 0 10px 30px rgba(1, 172, 211, 0.1);
-  --shadow-inset: inset 0 2px 4px rgba(0, 0, 0, 0.06);
-
-  /* Glassmorphism Effects */
-  --glass-bg: rgba(255, 255, 255, 0.85);
-  --glass-border: rgba(255, 255, 255, 0.18);
-  --glass-shadow: 0 8px 32px 0 rgba(1, 172, 211, 0.1);
-  --blur-effect: blur(10px);
-
-  /* Spacing System */
-  --spacing-xs: 0.25rem;
-  --spacing-sm: 0.5rem;
-  --spacing-md: 1rem;
-  --spacing-lg: 1.5rem;
-  --spacing-xl: 2rem;
-  --spacing-2xl: 3rem;
-
-  /* Border Radius */
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
-  --radius-xl: 16px;
-  --radius-full: 9999px;
-
-  /* Transition Speeds */
-  --transition-fast: 0.2s ease;
-  --transition-normal: 0.3s ease;
-  --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-
-  /* Container Widths */
-  --container-sm: 640px;
-  --container-md: 768px;
-  --container-lg: 1024px;
-  --container-xl: 1280px;
-  --container-2xl: 1400px;
-
-  /* Z-index Layers */
-  --z-negative: -1;
-  --z-normal: 1;
-  --z-tooltip: 10;
-  --z-fixed: 100;
-  --z-modal: 1000;
-
-  /* Animation Properties */
-  --animation-slow: 15s;
-  --animation-normal: 10s;
-  --animation-fast: 5s;
+  /* Everything else (spacing, radius scale, z-index, containers, shadows,
+     glass effects, dark-mode colors, generic gradients, bg-primary/secondary/
+     tertiary/card, text-light/muted, transition speeds, animation durations)
+     lives once in CSS/variables.css and is shared across every page. */
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Cairo", sans-serif;
+  font-family: var(--font-primary);
 }
 
 body {
@@ -127,21 +37,18 @@ body {
 
   */
 header {
-  background: rgba(255, 255, 255, 100%);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.97);
   padding: 1rem 1.5rem;
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 1000;
-  border-bottom: 1px solid rgba(1, 172, 211, 0.1);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-bottom: 1px solid rgba(var(--color-primary-rgb), 0.1);
+  transition: box-shadow 0.3s ease;
 }
 
 header.scrolled {
-  padding: 0.7rem 1.5rem;
-  background: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 10px 30px rgba(1, 172, 211, 0.1);
+  box-shadow: 0 10px 30px rgba(var(--color-primary-rgb), 0.1);
 }
 
 .header-container {
@@ -153,9 +60,9 @@ header.scrolled {
   position: relative;
 }
 
-.logoINnav {
-  width: 180px;
-  height: 45px;
+.logo-in-nav {
+  width: 200px;
+  height: 64px;
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   margin-left: 1rem;
   position: relative;
@@ -165,8 +72,6 @@ header.scrolled {
   border-radius: 12px;
   overflow: hidden;
 
-  background-size: 300% 300%;
-  animation: gradientAnimation 15s ease infinite;
   padding: 2px;
 }
 
@@ -183,9 +88,9 @@ header.scrolled {
   transition: all 0.3s ease;
 }
 
-.logoINnav img {
-  width: 980px;
-  height: 180px;
+.logo-in-nav img {
+  width: 100%;
+  height: 100%;
   object-fit: contain;
   transition: all 0.3s ease;
   border-radius: 8px;
@@ -207,7 +112,7 @@ nav {
 }
 
 .nav-links a {
-  color: #01acd3;
+  color: var(--color-primary);
   text-decoration: none;
   font-size: clamp(0.9rem, 1.5vw, 1.1rem);
   font-weight: 600;
@@ -229,7 +134,7 @@ nav {
   transform: translate(-50%, -50%) scale(0);
   width: 100%;
   height: 100%;
-  background: rgba(1, 172, 211, 0.1);
+  background: rgba(var(--color-primary-rgb), 0.1);
   border-radius: 12px;
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: -1;
@@ -244,11 +149,11 @@ nav {
   height: 2px;
   background: linear-gradient(
     135deg,
-    #01acd3,
-    #7a8f78,
-    #3b9b9f,
-    #01acd3,
-    #b17f5c
+    var(--color-primary),
+    var(--color-accent-green),
+    var(--color-primary-dark),
+    var(--color-primary),
+    var(--color-accent-tan)
   );
   transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   border-radius: 2px;
@@ -279,8 +184,8 @@ nav {
 }
 
 .nav-links a.active {
-  color: #01acd3;
-  background: rgba(1, 172, 211, 0.1);
+  color: var(--color-primary);
+  background: rgba(var(--color-primary-rgb), 0.1);
 }
 
 .mobile-menu-btn {
@@ -288,7 +193,7 @@ nav {
   background: none;
   border: none;
   cursor: pointer;
-  color: #01acd3;
+  color: var(--color-primary);
   font-size: 1.3rem;
   width: 45px;
   height: 45px;
@@ -323,9 +228,9 @@ nav {
     justify-content: center;
   }
 
-  .logoINnav {
-    width: 140px;
-    height: 35px;
+  .logo-in-nav {
+    width: 150px;
+    height: 48px;
   }
 
   nav {
@@ -356,7 +261,7 @@ nav {
     padding: 1rem 2rem;
     width: 100%;
     justify-content: center;
-    background: rgba(1, 172, 211, 0.05);
+    background: rgba(var(--color-primary-rgb), 0.05);
     border-radius: 15px;
   }
 
@@ -370,36 +275,12 @@ nav {
     width: calc(100% - 4rem);
   }
 }
-:root {
-  --primary-blue: #01acd3;
-  --secondary-sage: #7a8f78;
-  --accent-teal: #3b9b9f;
-  --accent-brown: #b17f5c;
-  --text-primary: #303030;
-  --text-secondary: #4a5568;
-  --text-light: #f8fafc;
-  --text-muted: #64748b;
-  --bg-primary: #f8fafc;
-  --bg-secondary: #ffffff;
-  --bg-tertiary: #f1f5f9;
-  --bg-card: rgba(255, 255, 255, 0.9);
-  --gradient-primary: linear-gradient(
-    135deg,
-    #01acd3,
-    #3b9b9f,
-    #7a8f78,
-    #b17f5c
-  );
-  --glass-bg: rgba(255, 255, 255, 0.85);
-  --glass-border: rgba(255, 255, 255, 0.18);
-  --glass-shadow: 0 8px 32px 0 rgba(1, 172, 211, 0.1);
-}
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Cairo", sans-serif;
+  font-family: var(--font-primary);
 }
 
 body {
@@ -564,9 +445,8 @@ body {
   background: var(--glass-bg);
   border-radius: 20px;
   overflow: hidden;
-  transition: all 0.4s ease;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
   position: relative;
-  backdrop-filter: blur(10px);
   border: 1px solid var(--glass-border);
   box-shadow: var(--glass-shadow);
 }
@@ -580,6 +460,7 @@ body {
   position: relative;
   overflow: hidden;
   height: 250px;
+  background: var(--color-tint-soft);
 }
 
 .meeting-image {
@@ -591,6 +472,19 @@ body {
 
 .meeting-card:hover .meeting-image {
   transform: scale(1.1);
+}
+
+.meeting-image-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gradient-accent);
+}
+
+.meeting-image-mark {
+  width: 45%;
+  height: 45%;
+  object-fit: contain;
 }
 
 .meeting-date-badge {
@@ -779,45 +673,6 @@ body {
   border: 2px solid white;
 }
 
-.meeting-card {
-  display: none;
-}
-.meeting-card.show {
-  display: block;
-}
-
-:root {
-  --color-primary: #01acd3;
-  --color-secondary: #01acd3;
-  --color-accent: #3b9b9f;
-  --color-gradient: linear-gradient(135deg, #b17f5c, #01acd3);
-}
-
-.footer {
-  position: relative;
-  background: #0f172a;
-  color: white;
-  overflow: hidden;
-}
-
-.footer-particles {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  z-index: 1;
-}
-
-.particle {
-  position: absolute;
-  width: 2px;
-  height: 2px;
-  background: var(--color-primary);
-  border-radius: 50%;
-  opacity: 0.2;
-  animation: float 6s infinite linear;
-}
-
 @keyframes float {
   0% {
     transform: translateY(0) translateX(0);
@@ -832,249 +687,21 @@ body {
   }
 }
 
-.footer-container {
-  position: relative;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 3rem 2rem;
-  z-index: 2;
-}
-
-.footer-grid {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 3rem;
-}
-
 /* إضافة هذه الأجزاء لتوسيط الأيقونات */
-.social-link:nth-child(1) {
-  grid-column: 2 / 3;
-}
 
-.social-link:nth-child(2) {
-  grid-column: 3 / 4;
-}
-
-/* باقي تنسيقات social-link كما هي */
-.social-link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 45px;
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 12px;
-  color: white;
-  font-size: 1.1rem;
-  transition: all 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  position: relative;
-  overflow: hidden;
-}
 
 /* باقي الكود يبقى كما هو */
 
 @media (max-width: 768px) {
-  .footer-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
+  
 
-  .footer-container {
-    padding: 2rem 1.5rem;
-  }
+  
 
-  .social-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
+  
 
   /* الحفاظ على توسيط الأيقونات في الشاشات الصغيرة */
-  .social-link:nth-child(1) {
-    grid-column: 2 / 3;
-  }
+  
 
-  .social-link:nth-child(2) {
-    grid-column: 3 / 4;
-  }
+  
 }
 
-.footer-title {
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-  color: white;
-  position: relative;
-  display: inline-block;
-  padding-bottom: 0.5rem;
-}
-
-.footer-title::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 50%;
-  height: 3px;
-  background: var(--color-gradient);
-  border-radius: 2px;
-}
-
-.contact-card {
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 15px;
-  padding: 1rem 1.5rem;
-  margin-bottom: 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  transition: all 0.3s ease;
-}
-
-.contact-card:hover {
-  transform: translateY(-3px);
-  border-color: var(--color-primary);
-  background: rgba(255, 255, 255, 0.05);
-}
-
-.contact-content {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-.contact-icon {
-  width: 45px;
-  height: 45px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--color-gradient);
-  border-radius: 12px;
-  font-size: 1.2rem;
-  color: white;
-  transition: transform 0.3s ease;
-}
-
-.contact-card:hover .contact-icon {
-  transform: rotateY(180deg);
-}
-
-.contact-info h3 {
-  font-size: 1rem;
-  margin-bottom: 0.3rem;
-  color: white;
-}
-
-.contact-info p {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 0.9rem;
-}
-
-.social-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0.8rem;
-  margin-top: 1.5rem;
-}
-
-.social-link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 45px;
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 12px;
-  color: white;
-  font-size: 1.1rem;
-  transition: all 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  position: relative;
-  overflow: hidden;
-}
-
-.social-link::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: var(--color-gradient);
-  opacity: 0;
-  transition: all 0.3s ease;
-  transform: translateY(100%);
-}
-
-.social-link:hover::before {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.social-link i {
-  position: relative;
-  z-index: 1;
-}
-
-.social-link:hover {
-  transform: translateY(-3px);
-}
-
-.quick-links {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0.8rem;
-}
-
-.quick-link {
-  padding: 0.8rem;
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  transition: all 0.3s ease;
-  text-align: center;
-}
-
-.quick-link:hover {
-  transform: translateY(-3px);
-  background: rgba(255, 255, 255, 0.05);
-  border-color: var(--color-primary);
-}
-
-.quick-link a {
-  color: white;
-  text-decoration: none;
-  font-size: 0.95rem;
-  font-weight: 500;
-}
-
-.footer-bottom {
-  text-align: center;
-  padding: 1.5rem;
-  background: rgba(0, 0, 0, 0.3);
-  position: relative;
-  font-size: 0.9rem;
-}
-
-.footer-bottom::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 1px;
-  background: linear-gradient(
-    to right,
-    transparent,
-    rgba(255, 255, 255, 0.1),
-    transparent
-  );
-}
-
-@media (max-width: 768px) {
-  .footer-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-
-  .footer-container {
-    padding: 2rem 1.5rem;
-  }
-
-  .social-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}

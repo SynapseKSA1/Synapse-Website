@@ -1,0 +1,51 @@
+<header>
+  <div class="header-container">
+    <a class="logo-in-nav" href="{{ '/' | relative_url }}">
+      <div class="logo-inner">
+        <img alt="شعار سِنابس" src="{{ '/Assets/logos/synapse-logo-live.png' | relative_url }}" width="298" height="115" decoding="async" />
+      </div>
+    </a>
+    <nav>
+      <ul class="nav-links">
+        <li>
+          <a href="{{ '/' | relative_url }}" {% if page.url == '/' %}class="active"{% endif %}>
+            الرئيسية
+          </a>
+        </li>
+        <li>
+          <a href="{{ '/' | relative_url }}#about">
+            من نحن
+          </a>
+        </li>
+        <li>
+          <a href="{{ '/' | relative_url }}#services">
+            خدماتنا
+          </a>
+        </li>
+        <li>
+          <a href="{{ '/' | relative_url }}#workshops">
+            ورش العمل
+          </a>
+        </li>
+        <li>
+          <a href="{{ '/blog/' | relative_url }}" {% if page.url contains '/blog/' %}class="active"{% endif %}>
+            المدونة
+          </a>
+        </li>
+        <li>
+          <a href="{{ '/Organizational_structure.html' | relative_url }}" {% if page.url contains 'Organizational_structure' %}class="active"{% endif %}>
+            الهيكل التنظيمي
+          </a>
+        </li>
+        <li>
+          <a href="{{ '/Previous_meetings.html' | relative_url }}" {% if page.url contains 'Previous_meetings' %}class="active"{% endif %}>
+            اللقاءات السابقة
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <button class="mobile-menu-btn">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+</header>

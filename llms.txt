@@ -1,0 +1,41 @@
+---
+---
+# Synapse (سِنابس)
+
+> منظمة سِنابس غير ربحية سعودية متخصصة في البيانات والذكاء الاصطناعي، تأسست في 29 يوليو 2024 في جدة
+> تحت إشراف الهيئة السعودية للبيانات والذكاء الاصطناعي (سدايا)، رقم الترخيص 1000623900.
+
+Synapse is a Saudi non-profit (NGO) focused on data and AI education, consulting, and community
+building, based in Jeddah, Saudi Arabia. Content on this site is in Arabic.
+
+## Core pages
+
+- [الرئيسية / Homepage]({{ site.url }}/): mission, services, membership, current workshops
+- [المدونة / Blog]({{ site.url }}/blog/): articles on AI/data fundamentals, sector applications
+  (fintech, business, engineering, medicine), kids AI education, and Saudi AI policy (SDAIA,
+  Vision 2030)
+- [الهيكل التنظيمي / Organizational structure]({{ site.url }}/Organizational_structure.html):
+  executive board and team
+- [اللقاءات السابقة / Previous meetings]({{ site.url }}/Previous_meetings.html): archive of past
+  workshops and events
+- [معسكر الذكاء الاصطناعي للأطفال / Kids AI Bootcamp]({{ site.url }}/KidsAIBootcamp.html): a
+  3-day AI literacy camp for children aged 7-12 in Jeddah
+
+## Services
+
+1. **أكاديمية Synapse (Synapse Academy)**: educational platform for AI/data knowledge and skills
+2. **ابتكار الحلول الذكية (Smart solutions)**: AI consulting services for institutions
+3. **استقطاب المواهب (Talent acquisition)**: building a technically literate community
+
+## Blog posts
+
+{% for post in site.posts %}
+- [{{ post.title }}]({{ post.url | absolute_url }}): {{ post.description }}
+{% endfor %}
+
+## Contact
+
+- Email: SynapseAdmin@synapseksa.com
+- Location: جدة، المملكة العربية السعودية (Jeddah, Saudi Arabia)
+- X/Twitter: https://x.com/synapseksa
+- LinkedIn: https://www.linkedin.com/company/synapseksa/
